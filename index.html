@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>algoviz — 3D sorting visualizer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html, body { margin: 0; padding: 0; background: #0b0d11; color: #d8e0ec;
+                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                 overflow: hidden; }
+    #scene { position: fixed; inset: 0; }
+    #hud  { position: fixed; top: 16px; left: 16px; padding: 12px 14px; line-height: 1.4;
+            background: rgba(11,13,17,0.6); border: 1px solid #1d2433; border-radius: 8px;
+            backdrop-filter: blur(8px); font-size: 13px; min-width: 240px; max-width: 320px; }
+    #hud h1 { margin: 0 0 4px; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; }
+    #hud small { color: #7e8898; }
+    #hud .row { margin-top: 8px; }
+    #hud kbd { background: #1f2632; padding: 1px 6px; border-radius: 3px; font-size: 11px;
+               border: 1px solid #2a3243; }
+    #algo-name { color: #7cc4ff; font-weight: 600; }
+    #stats { color: #a4d4ff; font-variant-numeric: tabular-nums; }
+    #pseudo { position: fixed; bottom: 16px; left: 16px; padding: 10px 14px;
+              background: rgba(11,13,17,0.6); border: 1px solid #1d2433; border-radius: 8px;
+              font-family: ui-monospace, "JetBrains Mono", Menlo, monospace; font-size: 12px;
+              line-height: 1.5; backdrop-filter: blur(8px); }
+    #pseudo .active { color: #ffd56a; font-weight: 600; }
+    #pseudo .dim    { color: #4d586c; }
+    a { color: #7cc4ff; }
+  </style>
+</head>
+<body>
+  <div id="scene"></div>
+
+  <div id="hud">
+    <h1>algoviz</h1>
+    <small>3D sorting visualizer · <span id="algo-name">bubble sort</span></small>
+    <div class="row" id="stats">compares: 0 · swaps: 0</div>
+    <div class="row"><small>
+      <kbd>Space</kbd> play/pause &nbsp; <kbd>→</kbd> step &nbsp; <kbd>R</kbd> reshuffle<br>
+      <kbd>1</kbd>-<kbd>5</kbd> algo &nbsp; <kbd>+</kbd>/<kbd>-</kbd> size &nbsp; <kbd>drag</kbd> rotate
+    </small></div>
+  </div>
+
+  <pre id="pseudo"></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="viz.js"></script>
+</body>
+</html>
